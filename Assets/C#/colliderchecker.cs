@@ -10,8 +10,11 @@ public class colliderchecker : MonoBehaviour {
 
         // if(collision.gameObject.tag == abc)
 
-        if(collision.gameObject.tag == "enemy" && gameObject.tag =="Player")
+        /*
+        if(collision.gameObject.tag == "Enemy" && gameObject.tag =="Player")
         collision.gameObject.SetActive(false);
+    */
+    
     }
 
     private void OnCollisionExit(Collision collision)
