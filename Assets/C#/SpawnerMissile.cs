@@ -10,9 +10,9 @@ public class SpawnerMissile : MonoBehaviour
     public float speed = 10.0f;
 
     public Transform Spawn;
-    public Rigidbody Missle;
+    //public Rigidbody Missle;
     public int waitTime;
-    public int speed_missile;
+    //public int speed_missile;
     private Ray ray = new Ray();
 
     private RaycastHit hit = new RaycastHit();
@@ -21,6 +21,8 @@ public class SpawnerMissile : MonoBehaviour
     {
 
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        RaycastHit[] hitall = Physics.RaycastAll(ray);
 
         if (Physics.Raycast(ray, out hit))
         {
@@ -39,12 +41,13 @@ public class SpawnerMissile : MonoBehaviour
                                                    Spawn.rotation);
             instance.velocity = Spawn.forward * speed;
         }
-
+        /*
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             Debug.Log(Spawn.rotation);
-            Rigidbody instance = Instantiate(Missle, Spawn.position, Spawn.rotation);
+            Rigidbody instance = Instantiate(Missle, Spawn.position , Spawn.rotation);
             instance.velocity = Spawn.forward * speed_missile;
         }
+        */
     }
 }

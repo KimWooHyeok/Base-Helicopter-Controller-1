@@ -39,8 +39,8 @@ public class Fruit
 
     public void instantiate()
     {
-        gometeo = GameObject.Instantiate(GameObject.Find("Cube").GetComponent<fruitsalad>().meteo, new Vector3(Random.Range(-100.0f, 100.0f), Random.Range(-100.0f, 100.0f),
-            Random.Range(-100.0f, 100.0f)), Quaternion.identity);
+        gometeo = GameObject.Instantiate(GameObject.Find("meteospawn").GetComponent<fruitsalad>().meteo, new Vector3(Random.Range(-300.0f, 300.0f), Random.Range(-300.0f, 300.0f),
+            Random.Range(-300.0f, 300.0f)), Quaternion.identity);
 
         gometeo.GetComponent<Renderer>().material.color = color;
 
@@ -53,9 +53,9 @@ public class Fruit
 
   
 
-
+        /*
         GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-        sphere.transform.position = new Vector3(Random.Range(-100.0f, 100.0f), Random.Range(-100.0f, 100.0f), Random.Range(-100.0f, 100.0f));
+        sphere.transform.position = new Vector3(Random.Range(-1000.0f, 1000.0f), Random.Range(-1000.0f, 1000.0f), Random.Range(-1000.0f, 1000.0f));
         sphere.GetComponent<Renderer>().material.color = color;
 
         int i = Random.Range(0, 1);
@@ -66,14 +66,14 @@ public class Fruit
         sphere.AddComponent<colliderchecker>();
         Rigidbody rigid = sphere.AddComponent<Rigidbody>();
 
-        rigid.mass = 0.005f;
+        rigid.mass = 0.01f;
         rigid.useGravity = false;
 
         Collider collider = sphere.GetComponent<CapsuleCollider>();
         collider.isTrigger = false;
-
+        */
         
-        rigid.AddForce(new Vector3(Random.Range(-10.0f, 10.0f), Random.Range(-10.0f, 10.0f), Random.Range(-10.0f, 10.0f)), ForceMode.Force);
+       // rigid.AddForce(new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)), ForceMode.Force);
 
 
 
@@ -147,39 +147,39 @@ public class fruitsalad  : MonoBehaviour {
     {
         //Let's illustrate inheritance with the 
         //default constructors.
-        Debug.Log("Creating the fruit");
-        Fruit myFruit = new Fruit();
-        Debug.Log("Creating the apple");
-        Apple myApple = new Apple();
+      //  Debug.Log("Creating the fruit");
+      //  Fruit myFruit = new Fruit();
+      //  Debug.Log("Creating the apple");
+      //  Apple myApple = new Apple();
 
-        Fruit myFruitOver = myApple;
+      //  Fruit myFruitOver = myApple;
 
-        myFruitOver.SayHello();
-        myFruitOver.Chop();
+        //myFruitOver.SayHello();
+        //myFruitOver.Chop();
 
         //Call the methods of the Fruit class.
-        myFruit.SayHello();
-        myFruit.Chop();
+        //myFruit.SayHello();
+        //myFruit.Chop();
 
         //Call the methods of the Apple class.
         //Notice how class Apple has access to all
         //of the public methods of class Fruit.
-        myApple.SayHello();
-        myApple.Chop();
+        //myApple.SayHello();
+        //myApple.Chop();
 
         //Now let's illustrate inheritance with the 
         //constructors that read in a string.
-        Debug.Log("Creating the fruit");
-        myFruit = new Fruit(Color.yellow);
-        Debug.Log("Creating the apple");
-        myApple = new Apple(Color.green);
+       // Debug.Log("Creating the fruit");
+       // myFruit = new Fruit(Color.yellow);
+        //Debug.Log("Creating the apple");
+        //myApple = new Apple(Color.green);
 
         //Call the methods of the Fruit class.
-        myFruit.SayHello();
-        myFruit.Chop();
+        //myFruit.SayHello();
+        //myFruit.Chop();
 
         List<Fruit> fruits = new List<Fruit>();
-        for(int i=0; i<1000; i++)
+        for(int i=0; i<200; i++)
         fruits.Add(new Fruit(Color.cyan));
 
         foreach (Fruit fruit in fruits)
@@ -189,7 +189,7 @@ public class fruitsalad  : MonoBehaviour {
 
         Debug.LogWarning(Random.seed + " : " + Random.value);
 
-        float mag = 5000f;
+        float mag = 3000f;
 
         foreach (Fruit fruit in fruits)
             fruit.gometeo.GetComponent<Rigidbody>().AddForce(
@@ -209,8 +209,8 @@ public class fruitsalad  : MonoBehaviour {
         //Call the methods of the Apple class.
         //Notice how class Apple has access to all
         //of the public methods of class Fruit.
-        myApple.SayHello();
-        myApple.Chop();
+        //myApple.SayHello();
+       // myApple.Chop();
     }
 
     

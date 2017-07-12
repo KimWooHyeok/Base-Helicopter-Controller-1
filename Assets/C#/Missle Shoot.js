@@ -11,8 +11,9 @@ function Update ()
 {
     if(Input.GetKeyDown(KeyCode.Mouse1))
     {
-    var instance : Rigidbody = Instantiate(Missle, Spawn.position, Spawn.rotation);
+        var instance: Rigidbody = Instantiate(Missle, Spawn.position + Vector3(0,-0.5f,0), Spawn.rotation);
         instance.velocity = Spawn.forward * speed;
+      
     }
 	ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 

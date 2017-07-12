@@ -5,6 +5,7 @@ using UnityEngine;
 public class ControlPanel : MonoBehaviour {
     public AudioSource MusicSound;
 
+    
     [SerializeField]
     KeyCode SpeedUp = KeyCode.Space;
     [SerializeField]
@@ -52,13 +53,16 @@ public class ControlPanel : MonoBehaviour {
 	    for (int index = 0; index < keyCodes.Length; index++)
 	    {
 	        var keyCode = keyCodes[index];
-	        if (Input.GetKey(keyCode))
+            if (Input.GetKey(keyCode))
+            {
+                Debug.Log("log" + keyCode);
                 pressedKeyCode.Add((PressedKeyCode)index);
+            }
 	    }
-
-	    if (KeyPressed != null)
-	        KeyPressed(pressedKeyCode.ToArray());
-
+        if (KeyPressed != null)
+        {
+            KeyPressed(pressedKeyCode.ToArray());
+        }
         // for test
         if (Input.GetKey(MusicOffOn))
         {

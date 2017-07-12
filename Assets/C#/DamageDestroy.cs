@@ -25,7 +25,7 @@ public class DamageDestroy : MonoBehaviour
     void Start()
     {
         vRandomRotation = new Vector3(Random.Range(-rotationSpeed, rotationSpeed), Random.Range(-rotationSpeed, rotationSpeed), Random.Range(-rotationSpeed, rotationSpeed));
-        gameObject.tag = "Respawn";
+        //gameObject.tag = "Respawn";
         if (rand)
         {
             randMultiplier = Random.Range(minMultiplier, maxMultiplier);
